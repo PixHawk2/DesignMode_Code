@@ -13,11 +13,11 @@ class Publisher:
     def __init__(self):
         self.subscriptor = []
     #订阅
-    def attach(self,pub):
-        self.subscriptor.append(pub)
+    def attach(self,subscriptor):
+        self.subscriptor.append(subscriptor)
     #取消订阅
-    def deattach(self,pub):
-        self.subscriptor.remove(pub)
+    def deattach(self,subscriptor):
+        self.subscriptor.remove(subscriptor)
 
     #推送
     def notice(self):
