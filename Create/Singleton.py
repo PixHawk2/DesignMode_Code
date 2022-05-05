@@ -60,3 +60,11 @@ print('b',b)
 print('b1',b1)
 print(b.__dict__)
 print(b1.__dict__)
+
+# 如何用元类实现单例模式
+class MetaSingleTon(type):
+    _instance = {}
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instance:
+            cls._instance[cls] = super(MetaSingleTon, cls).__call__(*args, **kwargs)
+        return cls._instance[cls]
